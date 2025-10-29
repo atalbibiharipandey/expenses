@@ -1,4 +1,5 @@
 import 'package:expance/core/common.dart';
+import 'package:expance/presentation/transactions/screen_add_transactions.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class ScreenHomePage extends StatefulWidget {
@@ -203,7 +204,9 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          NavigatorService.push(ScreenTransactionsAddPage());
+        },
         child: const Icon(Icons.add),
       ),
     );

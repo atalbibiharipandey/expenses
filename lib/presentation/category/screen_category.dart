@@ -1,6 +1,5 @@
 import 'package:expance/core/common.dart';
 import 'package:expance/models/model.category.dart';
-import 'package:expance/services/local_db/db_models.dart';
 
 class ScreenCategoryPage extends StatefulWidget {
   const ScreenCategoryPage({super.key});

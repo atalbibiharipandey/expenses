@@ -18,7 +18,9 @@ class MyDialogUtils {
   }) async {
     //NavigatorService.backToDialog();
     if (!isProgressVisible &&
-        NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
+        (NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+                NavigatorService.navigatorKey.currentState?.overlay?.context) !=
+            null) {
       isProgressVisible = true;
       return await showModalBottomSheet(
         backgroundColor: backgroundColor,
@@ -32,7 +34,12 @@ class MyDialogUtils {
         transitionAnimationController: transitionAnimationController,
         context:
             context ??
-            NavigatorService.navigatorKey.currentState!.overlay!.context,
+            (NavigatorService
+                    .navigatorKeySecond
+                    .currentState
+                    ?.overlay
+                    ?.context ??
+                NavigatorService.navigatorKey.currentState!.overlay!.context),
         builder: (BuildContext context) {
           return WillPopScope(
             onWillPop: () async {
@@ -58,13 +65,20 @@ class MyDialogUtils {
     isCancellable = false,
   }) async {
     if (!isProgressVisible &&
-        NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
+        (NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+                NavigatorService.navigatorKey.currentState?.overlay?.context) !=
+            null) {
       isProgressVisible = true;
       return await showDialog(
         barrierDismissible: isCancellable,
         context:
             context ??
-            NavigatorService.navigatorKey.currentState!.overlay!.context,
+            (NavigatorService
+                    .navigatorKeySecond
+                    .currentState
+                    ?.overlay
+                    ?.context ??
+                NavigatorService.navigatorKey.currentState!.overlay!.context),
         builder: (BuildContext context) {
           return WillPopScope(
             onWillPop: () async {
@@ -86,7 +100,9 @@ class MyDialogUtils {
     isCancellable = false,
   }) async {
     if (!isProgressVisible &&
-        NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
+        (NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+                NavigatorService.navigatorKey.currentState?.overlay?.context) !=
+            null) {
       showDialog(
         barrierDismissible: isCancellable,
         context:
@@ -115,7 +131,8 @@ class MyDialogUtils {
   static void hideProgressDialog() {
     if (isProgressVisible) {
       Navigator.pop(
-        NavigatorService.navigatorKey.currentState!.overlay!.context,
+        NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+            NavigatorService.navigatorKey.currentState!.overlay!.context,
       );
       isProgressVisible = false;
     }
@@ -128,7 +145,9 @@ class MyDialogUtils {
   }) async {
     bool? tmp;
     // hideProgressDialog();
-    if (NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
+    if ((NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+            NavigatorService.navigatorKey.currentState?.overlay?.context) !=
+        null) {
       tmp = await showDialog(
         barrierDismissible: isCancellable,
         context: NavigatorService.navigatorKey.currentState!.overlay!.context,
@@ -144,10 +163,15 @@ class MyDialogUtils {
                 onPressed: () {
                   Navigator.pop(
                     NavigatorService
-                        .navigatorKey
-                        .currentState!
-                        .overlay!
-                        .context,
+                            .navigatorKeySecond
+                            .currentState
+                            ?.overlay
+                            ?.context ??
+                        NavigatorService
+                            .navigatorKey
+                            .currentState!
+                            .overlay!
+                            .context,
                     true,
                   );
                   //isProgressVisible = false;
@@ -158,10 +182,15 @@ class MyDialogUtils {
                 onPressed: () {
                   Navigator.pop(
                     NavigatorService
-                        .navigatorKey
-                        .currentState!
-                        .overlay!
-                        .context,
+                            .navigatorKeySecond
+                            .currentState
+                            ?.overlay
+                            ?.context ??
+                        NavigatorService
+                            .navigatorKey
+                            .currentState!
+                            .overlay!
+                            .context,
                     false,
                   );
                 },
@@ -188,10 +217,18 @@ class MyDialogUtils {
   }) async {
     bool? tmp;
     // hideProgressDialog();
-    if (NavigatorService.navigatorKey.currentState?.overlay?.context != null) {
+    if ((NavigatorService.navigatorKeySecond.currentState?.overlay?.context ??
+            NavigatorService.navigatorKey.currentState?.overlay?.context) !=
+        null) {
       tmp = await showDialog(
         barrierDismissible: isCancellable,
-        context: NavigatorService.navigatorKey.currentState!.overlay!.context,
+        context:
+            NavigatorService
+                .navigatorKeySecond
+                .currentState
+                ?.overlay
+                ?.context ??
+            NavigatorService.navigatorKey.currentState!.overlay!.context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(title ?? "Info"),
@@ -201,10 +238,15 @@ class MyDialogUtils {
                 onPressed: () {
                   Navigator.pop(
                     NavigatorService
-                        .navigatorKey
-                        .currentState!
-                        .overlay!
-                        .context,
+                            .navigatorKeySecond
+                            .currentState
+                            ?.overlay
+                            ?.context ??
+                        NavigatorService
+                            .navigatorKey
+                            .currentState!
+                            .overlay!
+                            .context,
                     true,
                   );
                   //isProgressVisible = false;

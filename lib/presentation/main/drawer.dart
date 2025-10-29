@@ -77,7 +77,7 @@ class ProfileDrawer extends StatelessWidget {
                       child: AccountPageWidget(
                         title: "Transaction",
 
-                        icon: Icons.calendar_month,
+                        icon: LucideIcons.history,
                         onTap: () {
                           if (web) {
                             pageWeb.nameIndex.value = pageWeb.names.transaction;
