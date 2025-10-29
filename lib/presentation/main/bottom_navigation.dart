@@ -48,7 +48,7 @@ class MyPagesController {
 
           return Icon(
             Icons.home_outlined,
-            color: 3 == ci ? cPrimery : HexColor("#9DB2CE"),
+            color: 0 == ci ? cPrimery : HexColor("#9DB2CE"),
           );
         },
       ),

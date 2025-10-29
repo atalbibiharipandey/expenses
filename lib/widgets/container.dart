@@ -53,7 +53,7 @@ class Containers {
       height: height,
       padding: padding ?? margin83,
       decoration: BoxDecoration(
-        color: color.shade50,
+        color: dark ? cgrey100 : color.shade50,
         borderRadius: borderRadius ?? borderRadius08,
         boxShadow: [boxShadow],
       ),
@@ -144,7 +144,7 @@ class ContainerGradient extends StatelessWidget {
       padding: padding,
       alignment: alignment,
       decoration: BoxDecoration(
-        color: color ?? cwhite,
+        color: color ?? (dark ? cgrey300 : cwhite),
         borderRadius: borderRadius ?? borderRadius08,
         boxShadow: [
           BoxShadow(

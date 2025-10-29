@@ -1,5 +1,6 @@
 import 'package:expance/controller/controller.home.dart';
 import 'package:expance/core/common.dart';
+import 'package:expance/presentation/main/drawer.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +27,8 @@ class _ScreenChartPageState extends State<ScreenChartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Charts"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(title: Text("Charts"), centerTitle: true),
+      drawer: web == false ? ProfileDrawer() : null,
       body: ContainerShadow(
         padding: margin2010,
         child: Column(

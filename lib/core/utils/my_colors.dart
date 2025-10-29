@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:expance/core/common.dart';
 
-bool get dark => false;
+bool get dark => themeMode == ThemeMode.light ? false : true;
 
 MaterialColor get cPrimery => Colors.blue;
 MaterialColor get cBodyText => HexColor("#112D5B").toMaterialColor();

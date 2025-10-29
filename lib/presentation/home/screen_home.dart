@@ -1,5 +1,6 @@
 import 'package:expance/controller/controller.home.dart';
 import 'package:expance/core/common.dart';
+import 'package:expance/presentation/main/drawer.dart';
 import 'package:expance/presentation/transactions/screen_add_transactions.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -45,11 +46,8 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: const Text("Dashboard"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(title: const Text("Dashboard"), centerTitle: true),
+      drawer: web == false ? ProfileDrawer() : null,
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -166,7 +164,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
                       ),
 
                       hsBox12,
-                      ...cnt.transaction.take(5).map((t) {
+                      ...cnt.transaction.reversed.take(5).map((t) {
                         final bool isIncome = t.income ?? false;
                         return Padding(
                           padding: EdgeInsets.only(bottom: k10),
@@ -195,14 +193,19 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    t.category ?? '',
-                                    style: textMediumw500.fntColor(cgrey600),
+                                  Expanded(
+                                    child: Text(
+                                      t.category ?? '',
+                                      style: textMediumw500
+                                          .fntColor(cgrey600)
+                                          .fntSize(13),
+                                    ),
                                   ),
                                   Text(
-                                    t.date?.format(pattern: "dd MMM yyyy") ??
-                                        '',
-                                    style: textMediumw500.fntColor(cgrey600),
+                                    t.date?.format(pattern: "dd/MM/yyyy") ?? '',
+                                    style: textMediumw500
+                                        .fntColor(cgrey600)
+                                        .fntSize(14),
                                   ),
                                 ],
                               ),

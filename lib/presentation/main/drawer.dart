@@ -1,11 +1,12 @@
 import 'package:expance/core/common.dart';
 import 'package:expance/presentation/main/bottom_navigation.dart';
+import 'package:expance/presentation/splace/screen_splace.dart';
 
 class ProfileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: cPrimery,
+      backgroundColor: dark ? cwhite : cPrimery,
       child: Column(
         children: <Widget>[
           hsBox20,
@@ -116,12 +117,16 @@ class ProfileDrawer extends StatelessWidget {
                         title: "Change Theme",
                         icon: Icons.dark_mode,
                         onTap: () {
-                          // if (web) {
-                          //   pageWeb.nameIndex.value = pageWeb.names.category;
-                          //   return;
-                          // }
-                          // NavigatorService.pop();
-                          // NavigatorService.push(CategoryListPage());
+                          changeTheme?.call();
+                          Future.delayed(Duration(seconds: 1), () {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ScreenSplacePage(),
+                              ),
+                              (route) => false,
+                            );
+                          });
                         },
                       ),
                     ),

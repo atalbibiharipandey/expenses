@@ -32,6 +32,10 @@ import 'package:expance/widgets/text.dart';
 
 import 'common.dart';
 
+ThemeMode themeMode = ThemeMode.light;
+
+Function? changeTheme;
+
 // bool get web => kIsWeb;
 final webWidht = web ? 465.fem : null;
 

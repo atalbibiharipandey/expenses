@@ -1,5 +1,6 @@
 import 'package:expance/core/common.dart';
 import 'package:expance/models/model.category.dart';
+import 'package:expance/presentation/main/drawer.dart';
 
 class ScreenCategoryPage extends StatefulWidget {
   const ScreenCategoryPage({super.key});
@@ -86,12 +87,8 @@ class _ScreenCategoryPageState extends State<ScreenCategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Manage Categories"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
-
+      appBar: AppBar(title: Text("Manage Categories"), centerTitle: true),
+      drawer: web == false ? ProfileDrawer() : null,
       body: Padding(
         padding: margin20all,
         child: FutureBuilderMy(

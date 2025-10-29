@@ -87,9 +87,23 @@ class _ScreenAdminMainPageState extends State<ScreenAdminMainPage>
                         navigatorKey: NavigatorService.navigatorKeySecond,
                         debugShowCheckedModeBanner: false,
                         navigatorObservers: [myObserver],
+                        themeMode: themeMode,
                         theme: ThemeData(
                           colorScheme: ColorScheme.fromSeed(
                             seedColor: cPrimery,
+                          ),
+                          useMaterial3: true,
+                          elevatedButtonTheme: ElevatedButtonThemeData(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: cPrimery,
+                            ),
+                          ),
+                          scaffoldBackgroundColor: cwhite,
+                        ),
+                        darkTheme: ThemeData(
+                          colorScheme: ColorScheme.fromSeed(
+                            seedColor: cPrimery,
+                            brightness: Brightness.dark,
                           ),
                           useMaterial3: true,
                           elevatedButtonTheme: ElevatedButtonThemeData(
