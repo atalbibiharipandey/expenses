@@ -1,6 +1,8 @@
 import 'package:expance/core/common.dart';
 import 'package:expance/presentation/main/main.dart';
 
+Function? themeSet;
+
 class ScreenSplacePage extends StatefulWidget {
   const ScreenSplacePage({super.key});
 
@@ -10,6 +12,9 @@ class ScreenSplacePage extends StatefulWidget {
 
 class _ScreenSplacePageState extends State<ScreenSplacePage> {
   goToPage() async {
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //   themeSet?.call();
+    // });
     await Future.delayed(Duration(seconds: 2));
     NavigatorService.pushReplacement(ScreenAdminMainPage());
   }

@@ -1,6 +1,7 @@
 import 'package:expance/core/common.dart';
 import 'package:expance/presentation/main/drawer.dart';
 import 'package:expance/presentation/transactions/screen_add_transactions.dart';
+import 'package:flutter/foundation.dart';
 
 class ScreenTransactionsPage extends StatefulWidget {
   const ScreenTransactionsPage({super.key});
@@ -14,7 +15,7 @@ class _ScreenTransactionsPageState extends State<ScreenTransactionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Transactions"), centerTitle: true),
-      drawer: web == false ? ProfileDrawer() : null,
+      drawer: kIsWeb == false ? ProfileDrawer() : null,
       body: Padding(
         padding: margin20all,
         child: FutureBuilderMy(

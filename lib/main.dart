@@ -31,21 +31,36 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
   }
 
+  setTheme() {
+    print("Local Storage setTheme:- ${LocalDb.prefs.getInt("theme")}");
+    themeMode = LocalDb.prefs.getInt("theme") == 1
+        ? ThemeMode.dark
+        : ThemeMode.light;
+    setState(() {});
+  }
+
   @override
   void initState() {
+    print("Local Storage Theme:- ${LocalDb.prefs.getInt("theme")}");
+    themeMode = LocalDb.prefs.getInt("theme") == 1
+        ? ThemeMode.dark
+        : ThemeMode.light;
     super.initState();
     changeTheme = changeThemeToggel;
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      themeMode = LocalDb.prefs.getInt("theme") == 1
-          ? ThemeMode.dark
-          : ThemeMode.light;
-      setState(() {});
-    });
+    themeSet = setTheme;
+    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //   print("Local Storage Theme:- ${LocalDb.prefs.getInt("theme")}");
+    //   themeMode = LocalDb.prefs.getInt("theme") == 1
+    //       ? ThemeMode.dark
+    //       : ThemeMode.light;
+    //   setState(() {});
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     getSize(context);
+    themeSet = setTheme;
     return MaterialApp(
       title: constants.appName,
       scaffoldMessengerKey: globalMessengerKey,

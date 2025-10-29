@@ -2,6 +2,7 @@ import 'package:expance/controller/controller.home.dart';
 import 'package:expance/core/common.dart';
 import 'package:expance/presentation/main/drawer.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ScreenChartPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _ScreenChartPageState extends State<ScreenChartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Charts"), centerTitle: true),
-      drawer: web == false ? ProfileDrawer() : null,
+      drawer: kIsWeb == false ? ProfileDrawer() : null,
       body: ContainerShadow(
         padding: margin2010,
         child: Column(
