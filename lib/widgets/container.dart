@@ -1,5 +1,67 @@
 import 'package:expance/core/common.dart';
 
+class Containers {
+  Widget cardColorBgIcon({
+    required Widget child,
+    double? width,
+    double? height,
+    IconData? bgIcon,
+    double? bgIconSize,
+    bool? noBgIcon,
+    BorderRadius? borderRadius,
+  }) {
+    final color = getRandomColor();
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      width: width == 0 ? null : width ?? 200.fem,
+      height: height == 0 ? null : height ?? 150.fem,
+      // constraints: BoxConstraints(minHeight: 130.fem, maxHeight: 150.fem),
+      padding: margin108,
+      decoration: BoxDecoration(
+        color: color.shade50,
+        borderRadius: borderRadius ?? borderRadius08,
+        boxShadow: [boxShadow],
+      ),
+      child: Stack(
+        children: [
+          if (noBgIcon != true)
+            Center(
+              child: Icon(
+                bgIcon ?? Icons.assignment_outlined,
+                color: color.withAlpha(25),
+                size: bgIconSize ?? 120.fem,
+              ),
+            ),
+          child,
+        ],
+      ),
+    );
+  }
+
+  Widget cardColor({
+    required Widget child,
+    double? width,
+    double? height,
+    EdgeInsetsGeometry? padding,
+    BorderRadius? borderRadius,
+    MaterialColor? bgColor,
+  }) {
+    final color = bgColor ?? getRandomColor();
+    return Container(
+      clipBehavior: Clip.hardEdge,
+      width: width,
+      height: height,
+      padding: padding ?? margin83,
+      decoration: BoxDecoration(
+        color: color.shade50,
+        borderRadius: borderRadius ?? borderRadius08,
+        boxShadow: [boxShadow],
+      ),
+      child: child,
+    );
+  }
+}
+
 class ContainerShadow extends StatelessWidget {
   const ContainerShadow({
     super.key,

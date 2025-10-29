@@ -4,10 +4,12 @@ import 'package:expance/core/utils/my_colors.dart';
 import 'package:expance/core/utils/navigator_service.dart';
 import 'package:expance/core/utils/snack_bar.dart';
 import 'package:expance/presentation/splace/screen_splace.dart';
+import 'package:expance/services/local_db/db_models.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeLocalDatabase();
   runApp(const MyApp());
 }
 

@@ -22,15 +22,15 @@ export 'package:expance/core/utils/progress_dialog_utils.dart';
 import 'dart:developer';
 
 import 'package:expance/presentation/main/web_page.dart';
+import 'package:expance/services/local_db/db_models.dart';
 import 'package:expance/services/local_db/local_db.dart';
+import 'package:expance/widgets/widget.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:expance/models/index.dart' as m;
 import 'package:expance/widgets/text.dart';
 
 import 'common.dart';
-
-const fCollection = (user: "user", iceOffer: 'iceOffers', sessions: "sessions");
 
 // bool get web => kIsWeb;
 final webWidht = web ? 465.fem : null;
@@ -41,7 +41,11 @@ final pageWeb = ManageWebPage();
 
 final g = GlobalVariable();
 
-class GlobalVariable {}
+class GlobalVariable {
+  final coll = Collection();
+  final m = Model();
+  final w = Widgets();
+}
 
 class GVar {
   static final db = LocalDb();
@@ -62,5 +66,38 @@ extension EmailAtRemove on String? {
       return this!.split("@").first;
     }
     return null;
+  }
+}
+
+class FutureBuilderMy<T> extends StatelessWidget {
+  const FutureBuilderMy({
+    super.key,
+    required this.future,
+    required this.builder,
+  });
+  final Future<T>? future;
+  final Widget Function(BuildContext context, T? data) builder;
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: Text(
+              "Please Wait...",
+              style: textBoldw700.fntColor(cPrimeryText),
+            ),
+          );
+        }
+
+        if (snapshot.hasError) {
+          return Center(
+            child: Text(snapshot.error.toString(), style: textNormal),
+          );
+        }
+        return builder(context, snapshot.data);
+      },
+    );
   }
 }

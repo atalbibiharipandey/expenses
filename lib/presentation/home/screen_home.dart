@@ -118,13 +118,11 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
                   padding: margin2010,
                   child: Column(
                     children: [
-                      const Text(
-                        "Expense Breakdown",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Text(
+                        "Expense Breakdown Chart",
+                        style: textBoldw700.fntSize(18),
                       ),
+
                       hsBox20,
                       SizedBox(
                         height: 220,
@@ -169,14 +167,12 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Recent Transactions",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: textBoldw700.fntSize(18),
                       ),
-                      const SizedBox(height: 12),
+
+                      hsBox12,
                       ...recentTransactions.map((t) {
                         final bool isIncome = t['type'] == 'Income';
                         return ListTile(
@@ -208,8 +204,7 @@ class _ScreenHomePageState extends State<ScreenHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.tealAccent[400],
-        child: const Icon(Icons.add, color: Colors.black),
+        child: const Icon(Icons.add),
       ),
     );
   }

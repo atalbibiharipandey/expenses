@@ -100,7 +100,7 @@ class _ListViewPaginatedState<T> extends State<ListViewPaginated<T>> {
       shrinkWrap: widget.shrinkWrap ?? false,
       itemBuilder: (context, index) {
         if ((widget.data ?? []).isEmpty) {
-          return widget.simmer ?? SizedBox.shrink();
+          return widget.simmer ?? Text("No Results Found.");
         }
         return widget.itemBuilder(context, index, _paginatedData[index]);
         // return Column(
