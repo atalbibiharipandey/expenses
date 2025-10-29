@@ -12,7 +12,11 @@ class _ScreenTransactionsPageState extends State<ScreenTransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Manage Categories")),
+      appBar: AppBar(
+        title: Text("Transactions"),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
 
       body: Padding(
         padding: margin20all,
